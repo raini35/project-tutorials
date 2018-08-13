@@ -22,12 +22,12 @@ module.exports = {
     function saveArticle(obj) {
       new Article(obj).save((err, article) => {
         if (err) {
-          res.send(err);
+          res.sendStatus(err);
         } else if (!article) {
-          res.send(400);
+          res.sendStatus(400);
         } else {
           return article.addAuthor(req.body.authorId).then((_article) => {
-            return res.send(_article);
+            return res.sendStatus(_article);
           });
         };
         next();
@@ -39,11 +39,11 @@ module.exports = {
       .populate('author')
       .populate('comments.author').exec((err, article) => {
         if (err) {
-          res.send(err);
+          res.sendStatus(err);
         } else if (!article) {
-          res.send(404);
+          res.sendStatus(404);
         } else {
-          res.send(article);
+          res.sendStatus(article);
         }
         next();
       });
@@ -70,9 +70,9 @@ module.exports = {
       .populate('author')
       .populate('comments.author').exec((err, article) => {
         if (err) {
-          res.send(err);
+          res.sendStatus(err);
         } else if (!article) {
-          res.send(404);
+          res.sendStatus(404);
         } else {
           res.send(article);
         }

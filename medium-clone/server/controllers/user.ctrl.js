@@ -6,11 +6,11 @@ module.exports = {
     addUser: (req, res, next) => {
         new User(req.body).save((err, newUser) => {
             if (err)
-                res.send(err)
+                res.sendStatus(err)
             else if (!newUser)
-                res.send(400)
+                res.sendStatus(400)
             else
-                res.send(newUser)
+                res.sendStatus(newUser)
             next()
         });
     },
@@ -18,11 +18,11 @@ module.exports = {
         User.findById(req.params.id).then
         /*populate('following').exec*/((err, user)=> {
             if (err)
-                res.send(err)
+                res.sendStatus(err)
             else if (!user)
-                res.send(404)
+                res.sendStatus(404)
             else
-                res.send(user)
+                res.sendStatus(user)
             next()
         })
     },
