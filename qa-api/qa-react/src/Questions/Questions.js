@@ -5,14 +5,16 @@ import axios from 'axios';
 class Questions extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       questions: null,
     };
   }
 
   async componentDidMount() {
-    const questions = (await axios.get('http://localhost:8081/')).data;
+    console.log('Entering componentDidMount function...')
+    let questions = (await axios.get('http://localhost:8081/'));
+    console.log(questions);
+    questions = questions.data;
     this.setState({
       questions,
     });
@@ -27,7 +29,7 @@ class Questions extends Component {
             <div className="card-header">Need help? Ask here!</div>
             <div className="card-body">
               <h4 className="card-title">+ New Question</h4>
-              <p className="card-text">Don't worry. Help is on the way!</p>
+              <p className="card-text">Dont worry. Help is on the way!</p>
             </div>
           </div>
         </Link>
