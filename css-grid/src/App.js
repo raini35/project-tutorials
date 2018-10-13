@@ -1,19 +1,21 @@
 import React, { Component } from 'react';
 import './App.css';
-
+// <label class="container">
+//   <input type="checkbox"></input>
+//   <span class="checkmark"></span>
+//     {name}
+// </label>
 class App extends Component {
 
   render() {
-    const calNames = ["Sleep", "Run", "Morning Routine", "Evening Routine", "Programming", "Study", "Gym"];
+    const calNames = ["Sleep", "Run", "Morning Routine", "Evening Routine", "Programming", "Study", "Gym", "Travel", "Water"];
 
     const listOfNames = calNames.map(name =>
-      <div className="calname">
-        <label class="container">
-          <input type="checkbox"></input>
-          <span class="checkmark"></span>
-            {name}
-        </label>
-      </div>);
+      <label class="containero">
+        <input type="checkbox"></input>
+        <span class="checkmark"></span>
+          {name}
+      </label>);
 
     return (
       <div class="wrapper">
@@ -21,7 +23,7 @@ class App extends Component {
         <div className="calbar">
           <div className="calchart"></div>
           <div className="calnames">
-            <h2 style={{"margin-left":"20px"}}>My Calendars</h2>
+            <h2 style={{"margin-left":"20px", "font-weight": "800"}}>My Calendars</h2>
               {listOfNames}
           </div>
         </div>
