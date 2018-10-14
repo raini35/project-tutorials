@@ -38,6 +38,54 @@ body {
 
 .calanalysis {
   background-color: rgb(50,50,50);
+  display: grid;
+  grid-row-gap:    20px;
+  overflow-x: auto; 
+  overflow-y:auto;
+  padding:20px;
+}
+
+@media (min-width: 930px) {
+  .calanalysis {
+    grid-template-rows: minmax(300px, auto) minmax(300px, auto) minmax(300px, auto);
+  }
+
+  .squares {
+    display: grid;
+    grid-template-columns: minmax(300px, auto) minmax(300px, auto) minmax(300px, auto);
+    grid-column-gap: 20px;
+
+  }
+
+  .rectangles {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 20px;
+
+  }
+}
+
+@media (max-width: 929px) {
+  .calanalysis {
+    grid-template-columns: minmax(300px, auto);
+    grid-column-gap: 20px;
+
+  }
+  .tile {
+    height: 300px;
+  }
+
+  .squares {
+    display: grid;
+    grid-template-row: 1fr;
+    grid-row-gap: 20px;
+  }
+
+  .rectangles {
+    display: grid;
+    grid-template-row: 1fr;
+    grid-row-gap: 20px;
+  }
 }
 
 .containero {
